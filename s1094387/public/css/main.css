@@ -1,0 +1,416 @@
+/* Pallet */
+:root {
+    --dark-background: #1d0b33;
+    --light-background: #eeeae2;
+    --card-background: #6C6EA0;
+    --accent-color: #5db7de;
+    --text-color: #fffbf4;
+    --text-color-dark: #232323;
+    --border-color: #A39B8B;
+    --novel-background: #2d0100;
+    --horror-background: black;
+    --fantasy-background: #052701;
+    --sci-fi-background: #2a012c;
+    --mystery-background: #292502;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: inherit;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem;
+    background: var(--light-background);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    width: 100%;
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--dark-background);
+    color: var(--text-color);
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 2rem;
+    font-size: 3rem;
+    color: var(--text-color-dark);
+}
+
+.nav__adminPanel {
+    display: none;
+}
+
+.nav_main {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav_main li {
+    float: left;
+}
+
+.nav_main li a, .dropbtn {
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav_main li a::after {
+    content: "";
+    background-color: green;
+
+    bottom: -5px; /* Adjust the distance of the dot from the text */
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 1; /* Hide the dot by default */
+    transition: opacity 0.2s ease;
+}
+
+.nav_main li a:hover, .dropdown:hover .dropbtn {
+    background-color: var(--accent-color);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.form_section {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    background-color: var(--light-background);
+    color: var(--text-color-dark);
+    padding: 2rem;
+    margin: 1rem;
+    justify-content: center;
+    border-radius: 1.5rem;
+    box-shadow: .3rem .3rem 1rem black;
+    min-width: 35rem;
+    max-width: 40rem;
+}
+
+.form__input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.alert {
+    color: red;
+    margin: 0.5rem;
+}
+
+.form__input > input, .form__input > select, .form__input > textarea {
+    width: 25rem;
+    margin-top: .5rem;
+    padding: .5rem;
+    font-size: 1.4rem;
+}
+
+.form__input >  textarea {
+    height: 10rem;
+}
+
+form__input:last-of-type {
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    min-height: 34rem;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-background);
+    padding: 1rem 1rem 1rem 2rem;
+    margin: 1rem;
+    border: solid 1px var(--border-color);
+    box-shadow: 10px 10px black;
+    border-radius: 2px;
+}
+
+.card__title{
+    padding-bottom: 1rem;
+}
+
+.card__text {
+    overflow-y: scroll;
+    max-width: 32.8rem;
+    margin-top: 0.5rem;
+    -ms-overflow-style: none;
+}
+
+.card__description{
+    flex: 1;
+    font-style: italic;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.card__figure{
+}
+
+.card__figure img {
+    display: block;
+    margin-left: 2rem;
+}
+
+.card__section {
+    width: 100%;
+    height: 100%;
+}
+
+.card__text::-webkit-scrollbar {
+    display: none;
+}
+
+.card__show {
+    width: 35rem;
+    margin: 1rem auto 1rem auto;
+}
+
+.home {
+    width: 100%;
+    height: 85%;
+}
+
+.home__addBook {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.home__main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    place-items: center;
+}
+
+.bookCreate {
+    height: 85%;
+    margin: 0 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bookCard{
+    background-color: var(--novel-background);
+}
+.bookCard[data-genre-of-book="Novel"]{
+    background-color: var(--novel-background);
+}
+.bookCard[data-genre-of-book="Horror"], .bookCard[data-genre-of-book="Thriller"]{
+    background-color: var(--horror-background);
+}
+.bookCard[data-genre-of-book="Fantasy"]{
+    background-color: var(--fantasy-background);
+}
+.bookCard[data-genre-of-book="Sci-Fi"]{
+    background-color: var(--sci-fi-background);
+}
+.bookCard[data-genre-of-book="Mystery"]{
+    background-color: var(--mystery-background);
+}
+
+.filter{
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.btn {
+    float: right;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transition: all .1s;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
+.active{
+    background-color: var(--dark-background);
+    color: var(--text-color);
+}
+
+/* When an index in the main info on a page */
+.section__main__index {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* This is the section with a title and than the card index */
+.section__card__index {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cards in an index (responsive) */
+.card__index {
+    display: grid;
+    grid-gap: 1rem;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+}
+
+
+.reqCreate {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 2rem;  
+}
+
+
+.review {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 2rem;
+}
+
+.profile__section {
+    margin: 1.5rem auto 1rem auto;
+    width: 85%;
+}
+
+.editProfile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 2rem;
+}
+
+.adminCard {
+    box-shadow: none;
+    color: var(--text-color-dark);
+    background-color: var(--text-color);
+    min-height: 0;
+    overflow: hidden;
+}
+
+.card_empty {
+    background-color: var(--text-color);
+    margin: 2rem;
+    min-height: 0;
+}
+
+.admin__main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+/* Utility */
+
+.u-button {
+    margin: 1rem;
+    padding: 1rem 2rem;
+    background-color: var(--dark-background);
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 1rem;
+    margin-bottom: .3rem;
+    transition: all .1s;
+    width: fit-content;
+}
+
+.u-button:hover {
+    background-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.u-button:active {
+    text-shadow: .1rem .2rem .3rem rgba(0,0,0,.5);
+}
+
+.u-label-vert-align-top {
+    vertical-align: top;
+}
+
+.u-margin-top {
+    margin-top: 3.2rem;
+}
+
+.u-remove-two-books:nth-of-type(3), .u-remove-two-books:nth-of-type(4) {
+    display: none;
+}
+
+.u-remove-two-users:nth-of-type(3), .u-remove-two-users:nth-of-type(4) {
+    display: none;
+}
+
+img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+li{
+    list-style: none;
+}
